@@ -1,0 +1,67 @@
+git init: 현재 위치 git으로 관리 시작(최초시작)
+
+# 최초 1번만
+git config --global user.name: 사용자 이름 확인
+git config --global user.email : 사용자 이메일 확인
+git config --global user.name <이름>: 사용자 이름 추가
+git config --global user.email <이메일>: 사용자 이메일 추가
+
+git status: 현재 git으로 관리되는 폴더의 상태
+
+git add <파일명>: 파일을 git으로 관리하기 전인 Staging Area(준비 단계)에 올림
+git add --all: 전부 올림
+
+git rm --cached <파일명>: 준비 단계에서 다시 빠짐
+
+git restore --staged <파일명>: 커밋전 목록에서 제거
+
+git commit: 현재 시점의 label(message)을 붙이며 저장
+git commit -m "메시지" [<파일명>]: 메시지를 미리 작성하여 commit
+git commit -am "메시지": 선택한 파일만 commit
+
+git log: 누가 언제 어떤 commit을 저장했는지에 대한 log
+git log --oneline [--graph]: log를 간단히 한줄로 출력
+
+git remote add <이름> <깃 주소>: 원격지 연결(추가)
+
+git remote rm <이름>: 원격지 연결 제거(삭제)
+
+git remote -v: 원격지 목록 확인
+
+git push -u origin(이름) master: 깃에 <이름>을 push
+git push -uf origin(이름) master: 강제 push
+
+# branch
+git branch <branch name>: 브런치 생성
+git branch: 로컬의 현존 브런치 확인
+git branch -r: 원격지의 브런치 확인
+git branch -a: 로컬과 원격지 모두의 브런치 확인
+git branch -d <branch name>: 해당 브런치 삭제
+
+git checkout <branch name>: 해당 브런치로 이동
+
+git merge <branch name>: 해당 브런치를 합친다
+	- 서로 같은파일을 서로 다르게 같은 위치에서 수정을 한 후 merge하면 
+
+git checkout -p <브런치명> <파일명>
+	- 해당 브런치에서 수정완료된 파일을 master로 패치함
+	- commit은 따로 해줘야함
+
+git reset --hard <log 고유번호>
+	- 고유번호에 해당하는 log로 되돌아감 / 영구삭제
+
+git revert <log 고유번호>
+	- 고유번호에 해당하는 log의 전 시점으로 돌아감
+	- log는 유지하며 새로운 log 생성
+	- 2단계 이상 이동하려하면 REVERTING 발생
+
+git pull: 깃헙에 있는 내용용을 받아옴
+
+git clone <github 주소>: 깃헙주소내의 내용을 현 위치에 복사
+
+git push <(origin)> <브런치명>
+	- 연결된 깃헙에 브런치를 생성
+	- 로컬에 있는 브런치가 올라가야함 없으면 에러
+
+git push <(origin)> --delete <브런치명>
+	- 연결된 github의 브런치 제거
